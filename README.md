@@ -1,1 +1,2 @@
 # fashionShop
+Web aplikacija obuhvata osam stranica, među kojima su Home, Shop u kojoj su renderovani svi produkti i iz koje moze da se predje na Men,Woman i Sale stranicu, Men (posvecena muskoj odeci i personalizovanim filterima), Woman (za zensku garderobu i takodje svojim filterima), Sale (prikazuje proizvode na rasprodaji), About Us (gde se deli prica o brendu), Contact (za korisnike koji zele da nas kontaktiraju), kao i stranice za Log in, Sign up i Cart.
