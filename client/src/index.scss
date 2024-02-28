@@ -1,7 +1,88 @@
-*{
+@font-face {
+  font-family: Font-Thin;
+  src: url(./font/Montserrat-Thin.ttf);
+}
+
+
+@font-face {
+  font-family: Font-Light;
+  src: url(./font/Montserrat-Light.ttf);
+}
+
+@font-face {
+  font-family: Font-Medium;
+  src: url(./font/Montserrat-Medium.ttf);
+}
+
+@font-face {
+  font-family: Font-Regular;
+  src: url(./font/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: Font-Bold;
+  src: url(./font/Montserrat-SemiBold.ttf);
+}
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   list-style-type: none;
   text-decoration: none;
+}
+
+$secondary: #aaaaaa;
+$primary: #051E2E;
+$secondaryText: #FEBD69;
+
+header {
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 5%;
+  font-family: Font-Bold;
+  a{
+    color: $primary;
+    &:hover{
+      color: $secondaryText;
+    }
+  }
+
+  .logo {
+    align-items: center;
+
+    img {
+      max-height: 100%;
+    }
+  }
+
+  .nav {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .right {
+    width: 13%;
+    display: flex;
+    align-items: center;
+
+    .r {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+}
+
+main {
+  height: 85vh;
+  font-family: Font-Regular;
+  background-color: #051E2E;
+}
+
+footer {
+  height: 5vh;
 }
