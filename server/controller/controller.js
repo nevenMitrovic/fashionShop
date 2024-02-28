@@ -1,6 +1,7 @@
 const User=require('../model/userModel');
 const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken');
+const { getAll, getById } = require('../methods/methods');
 
 
 
@@ -30,7 +31,7 @@ const login=async(req,res)=>{
         }else{
                 const decrypt=bcrypt.compare(password,user.password,(err,result)=>{
                     if(err){
-                        res.status(403).json({message:'Nisu ispravni kredencijali!'});
+                        res.status(403).json({message:'Nisu ispravni kredencijali!cmd'});
                     }else{
                         const token=jwt.sign({userID:user._id},process.env.secretkey);
                         res.status(200).json({message:'Uspesno ste se ulogovali!',token:token});
@@ -40,7 +41,18 @@ const login=async(req,res)=>{
     }
 }
 
+const getAllProducts=async(req,res)=>{
+    const productsPromise=await getAll();
+    await res.status(200).json(productsPromise)
+}
+
+const productID=async(req,res)=>{
+    const id=req.body;
+    const product=await getById(id);
+    await res.status(200).json(product);
+}
+
 
 module.exports={
-    register,login
+    register,login,getAllProducts,productID
 }
