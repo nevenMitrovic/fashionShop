@@ -8,6 +8,10 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Cart from './pages/Cart';
 import Error from './pages/Error';
+import Woman from './pages/Woman';
+import Man from './pages/Man';
+import Sale from './pages/Sale';
+
 
 
 
@@ -25,6 +29,9 @@ function App() {
               <Route path='/signup' element={<SignUp/>}></Route>
               <Route path='/signin' element={<SignIn/>}></Route>
               <Route path='/cart' element={<Cart/>}></Route>
+              <Route path='/woman' element={<Woman/>}></Route>
+              <Route path='/man' element={<Man/>}></Route>
+              <Route path='/sale' element={<Sale/>}></Route>
               <Route path='*' element={<Error/>}></Route>
           </Route>
         </Routes>

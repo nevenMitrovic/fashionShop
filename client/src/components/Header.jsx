@@ -33,13 +33,19 @@ const Header = () => {
             </ul>
             <div className="right">
                 <ul className='r'>
-                    <li><Link to='/signup'>Sign up</Link> / <Link to='/signin'>Sign in</Link></li>
+                    <li className='log'><Link to='/signup'>Sign up</Link> / <Link to='/signin'>Sign in</Link></li>
                     <li><Link to='/cart'><i className="fa-solid fa-cart-shopping"></i></Link></li>
                 </ul>
             </div>
         </header>
         {open && 
-            <div className="dropDown">aaaaa</div>
+            <div className="dropDown" onMouseEnter={()=>openMenu()} onMouseLeave={()=>closeMenu()}>
+                <ul>
+                    <li><Link to='/woman'>Woman</Link></li>
+                    <li><Link to='/man'>Man</Link></li>
+                    <li><Link to='/sale'>Sale</Link></li>
+                </ul>
+            </div>
         }
         </>
     )

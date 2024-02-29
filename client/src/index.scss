@@ -42,10 +42,13 @@ header {
   justify-content: space-around;
   padding: 0 5%;
   font-family: Font-Bold;
-  a{
+
+  a {
     color: $primary;
-    &:hover{
+
+    &:hover {
       color: $secondaryText;
+      transition: 0.5s;
     }
   }
 
@@ -62,12 +65,31 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    a {
+      &:hover {
+        border-bottom: 1px solid $secondaryText;
+        transition: 0.5s;
+      }
+    }
   }
 
   .right {
     width: 13%;
     display: flex;
     align-items: center;
+
+    .log {
+      a {
+        color: $primary;
+
+        &:hover {
+          color: $secondaryText;
+          border-bottom: 1px solid $secondaryText;
+          transition: 0.5s;
+        }
+      }
+    }
 
     .r {
       display: flex;
@@ -85,4 +107,108 @@ main {
 
 footer {
   height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  font-family: Font-Light;
+  color: $secondaryText;
+
+  .social {
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+
+    a {
+      color: $secondaryText;
+
+      &:hover {
+        color: $primary;
+        transition: 0.5s;
+      }
+    }
+  }
+}
+
+.dropDown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 12%;
+  background-color: white;
+  left: 35%;
+  top: 6.8%;
+  font-family: Font-Bold;
+  height: 25vh;
+
+  li {
+    padding-bottom: 25%;
+  }
+
+  a {
+    color: $primary;
+
+    &:hover {
+      color: $secondaryText;
+      border-bottom: 1px solid $secondaryText;
+      transition: 0.5s;
+    }
+  }
+}
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  padding-bottom: 5%;
+  h1{
+    padding-bottom: 1%;
+  }
+  form {
+    width: 30%;
+    height: 60vh;
+    background-color: white;
+    border-radius: 7px;
+    padding: 1.5%;
+    h1{
+      font-family: Font-Bold;
+      color: $secondaryText;
+      text-align: center;
+      padding-bottom: 2%;
+    }
+    .policy{
+      font-family: Font-Light;
+      font-size: 10px;
+      padding-bottom: 2%;
+    }
+    .sign{
+      width: 25%;
+      font-family: Font-Regular;
+      font-size: 16px;
+      background-color: #FEBD69;
+      color: #051E2E;
+      &:hover{
+        cursor: pointer;
+        color: $secondaryText;
+        background-color: $primary;
+        transition: 0.5s;
+      }
+    }
+    .button{
+      display: flex;
+      justify-content: center;
+    }
+    input{
+      margin-bottom: 2%;
+      width: 60%;
+      padding: 1%;
+      font-family: Font-Regular;
+      border-radius: 5px;
+    }
+  }
 }
