@@ -163,15 +163,85 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   flex-direction: column;
   padding-bottom: 5%;
+  .message{
+    background-color: white;
+    margin-top: 2%;
+    color: red;
+    padding: 1%;
+    border-radius: 7px;
+    font-family: Font-Light;
+  }
   h1{
     padding-bottom: 1%;
   }
   form {
     width: 30%;
     height: 60vh;
+    background-color: white;
+    border-radius: 7px;
+    padding: 1.5%;
+    h1{
+      font-family: Font-Bold;
+      color: $secondaryText;
+      text-align: center;
+      padding-bottom: 2%;
+    }
+    .policy{
+      font-family: Font-Light;
+      font-size: 10px;
+      padding-bottom: 2%;
+    }
+    .sign{
+      width: 25%;
+      font-family: Font-Regular;
+      font-size: 16px;
+      background-color: #FEBD69;
+      color: #051E2E;
+      &:hover{
+        cursor: pointer;
+        color: $secondaryText;
+        background-color: $primary;
+        transition: 0.5s;
+      }
+    }
+    .button{
+      display: flex;
+      justify-content: center;
+    }
+    input{
+      margin-bottom: 2%;
+      width: 60%;
+      padding: 1%;
+      font-family: Font-Regular;
+      border-radius: 5px;
+    }
+  }
+}
+
+.signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  flex-direction: column;
+  padding-bottom: 5%;
+  .message{
+    background-color: white;
+    margin-top: 2%;
+    color: red;
+    padding: 1%;
+    border-radius: 7px;
+    font-family: Font-Light;
+  }
+  h1{
+    padding-bottom: 1%;
+  }
+  form {
+    width: 30%;
+    height: 50vh;
     background-color: white;
     border-radius: 7px;
     padding: 1.5%;

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import slika from '../images/logo.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMenu } from '../redux/slice/menuSlice';
+import { registerNull } from '../redux/slice/registerSlice';
 
 
 const Header = () => {
@@ -19,31 +20,35 @@ const Header = () => {
         dispatch(setMenu(obj));
     }
 
+    const setNull=()=>{
+        const obj={null:null};
+        dispatch(registerNull(obj));
+    }
 
 
     return (
         <>
         <header>
-            <div className="logo"><Link to='/'><img src={slika} alt="logo" /></Link></div>
+            <div className="logo"><Link to='/' onClick={()=>setNull()}><img src={slika} alt="logo" /></Link></div>
             <ul className='nav'>
-                <li><Link to='/'>Home</Link></li>
-                <li onMouseEnter={()=>openMenu()} onMouseLeave={()=>closeMenu()}><Link to='/shop'>Shop</Link></li>
-                <li><Link to='/about'>About Us</Link></li>
-                <li><Link to='/contact'>Contact</Link></li>
+                <li><Link to='/' onClick={()=>setNull()}>Home</Link></li>
+                <li onMouseEnter={()=>openMenu()} onMouseLeave={()=>closeMenu()}><Link to='/shop' onClick={()=>setNull()}>Shop</Link></li>
+                <li><Link to='/about' onClick={()=>setNull()}>About Us</Link></li>
+                <li><Link to='/contact' onClick={()=>setNull()}>Contact</Link></li>
             </ul>
             <div className="right">
                 <ul className='r'>
-                    <li className='log'><Link to='/signup'>Sign up</Link> / <Link to='/signin'>Sign in</Link></li>
-                    <li><Link to='/cart'><i className="fa-solid fa-cart-shopping"></i></Link></li>
+                    <li className='log'><Link to='/signup' onClick={()=>setNull()}>Sign up</Link> / <Link to='/signin' onClick={()=>setNull()}>Sign in</Link></li>
+                    <li><Link to='/cart' onClick={()=>setNull()}><i className="fa-solid fa-cart-shopping"></i></Link></li>
                 </ul>
             </div>
         </header>
         {open && 
             <div className="dropDown" onMouseEnter={()=>openMenu()} onMouseLeave={()=>closeMenu()}>
                 <ul>
-                    <li><Link to='/woman'>Woman</Link></li>
-                    <li><Link to='/man'>Man</Link></li>
-                    <li><Link to='/sale'>Sale</Link></li>
+                    <li><Link to='/woman' onClick={()=>setNull()}>Woman</Link></li>
+                    <li><Link to='/man' onClick={()=>setNull()}>Man</Link></li>
+                    <li><Link to='/sale' onClick={()=>setNull()}>Sale</Link></li>
                 </ul>
             </div>
         }

@@ -6,22 +6,24 @@ const { getAll, getById } = require("../methods/methods");
 const register = async (req, res) => {
   try {
     const { email, username, password } = req.body;
-    let user = await User.findOne({ email }, { username });
-    if (user != null) {
-      res
-        .status(403)
-        .json({
+    if ((email, username, password == "")) {
+      res.status(403).json({ message: "Unesite email,username i password!" });
+    } else {
+      let user = await User.findOne({ email }, { username });
+      if (user != null) {
+        res.status(403).json({
           message: "Korisnik pod istim email ili username vec postoji!",
         });
-    } else {
-      const hash = await bcrypt.hash(password, 10);
-      user = new User({ email, username, password: hash, role: 0 });
-      await user.save();
-      res.status(200).json({ message: "Korisnik je uspesno registrovan!" });
+      } else {
+        const hash = await bcrypt.hash(password, 10);
+        user = new User({ email, username, password: hash, role: 0 });
+        await user.save();
+        res.status(200).json({ message: "Korisnik je uspesno registrovan!" });
+      }
     }
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: error });
+    res.status(500).json({ message: "Korisnik pod istim email ili username vec postoji!" });
   }
 };
 

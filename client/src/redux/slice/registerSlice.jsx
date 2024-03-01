@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    isValid: false,
-    formData: null
+    isRegister: null
 };
 
 let registerSlice = createSlice({
@@ -10,11 +9,13 @@ let registerSlice = createSlice({
     initialState,
     reducers: {
         registerUser(state, action) {
-            state.isValid = action.payload.validator;
-            state.formData= action.payload.formData;
+            state.isRegister=action.payload.regStatus;
+        },
+        registerNull(state,action){
+            state.isRegister=action.payload.null;
         }
     }
 })
 
-export const { registerUser } = registerSlice.actions;
+export const { registerUser,registerNull } = registerSlice.actions;
 export default registerSlice = registerSlice.reducer;
