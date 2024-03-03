@@ -95,6 +95,14 @@ header {
       display: flex;
       justify-content: space-between;
       width: 100%;
+      .logout{
+        cursor: pointer;
+        &:hover {
+          color: $secondaryText;
+          border-bottom: 1px solid $secondaryText;
+          transition: 0.5s;
+        }
+      }
     }
   }
 }

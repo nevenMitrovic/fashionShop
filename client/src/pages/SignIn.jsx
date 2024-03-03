@@ -1,17 +1,53 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { sign } from "../redux/slice/signSlice";
+import { useNavigate } from "react-router-dom";
+
 
 const SignIn = () => {
 
-  const { isSignIn } = useSelector(state => state.signIn);
+  const { isSignIn, message } = useSelector(state => state.signIn);
+  const dispatch = useDispatch();
+  const navigate=useNavigate();
 
-  const SignIn=()=>{
-    
+  const SignIn = async (e) => {
+    e.preventDefault();
+    let obj;
+    let formData = {
+      username: e.target[0].value,
+      password: e.target[1].value
+    };
+    const server = await fetch('http://localhost:5000/fashionshop/users/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: formData.username, password: formData.password })
+    });
+    const response = await server.json();
+    if (response.message === 'Uspesno ste se ulogovali!') {
+      obj = { signIn: true, message: response.message,username:formData.username };
+      localStorage.setItem('token', JSON.stringify(response.token));
+      dispatch(sign(obj));
+      navigate('/shop');
+    } else {
+      obj = { signIn: false, message: response.message };
+      dispatch(sign(obj));
+    }
   }
 
   return (
     <>
       <div className="signin">
-        <form>
+        {message!=="Nisu ispravni kredencijali!" ? (
+          <form onSubmit={SignIn}>
+            <h1>Sign in</h1>
+            <label>Username</label><br />
+            <input type="text" id="username" placeholder="nevenub" /><br />
+            <label>Password</label><br />
+            <input type="text" id="password" placeholder="********" />
+            <p className="policy">By using our website, you agree to abide by our Terms of Service and acknowledge our Data Policy. We are committed to protecting your privacy and ensuring the security of your information. Please review our Terms of Service and Data Policy for more details on how we collect, use, and protect your data.</p>
+            <div className="button"><button type="submit" className="sign">Sign in</button></div>
+          </form>) : (
+            <>
+          <form onSubmit={SignIn}>
           <h1>Sign in</h1>
           <label>Username</label><br />
           <input type="text" id="username" placeholder="nevenub" /><br />
@@ -20,6 +56,9 @@ const SignIn = () => {
           <p className="policy">By using our website, you agree to abide by our Terms of Service and acknowledge our Data Policy. We are committed to protecting your privacy and ensuring the security of your information. Please review our Terms of Service and Data Policy for more details on how we collect, use, and protect your data.</p>
           <div className="button"><button type="submit" className="sign">Sign in</button></div>
         </form>
+        <div className="message">{message}</div>
+        </>
+        )}
       </div>
     </>
   )

@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    isSignIn: null
+    isSignIn: false,
+    message: null,
+    username:null
 };
 
 let signInSlice = createSlice({
@@ -9,10 +11,18 @@ let signInSlice = createSlice({
     initialState,
     reducers: {
         sign(state, action) {
-            state.isSignIn = action.payload;
+            state.isSignIn = action.payload.signIn;
+            state.message=action.payload.message;
+            state.username=action.payload.username;
+        },
+        messageNull(state,action){
+            state.message=action.payload.null;
+        },
+        signO(state,action){
+            state.isSignIn=action.payload.signOut;
         }
     }
 });
 
-export const { sign } = signInSlice.actions;
+export const { sign,messageNull,signO } = signInSlice.actions;
 export default signInSlice = signInSlice.reducer;
