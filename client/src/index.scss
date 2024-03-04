@@ -95,8 +95,10 @@ header {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      .logout{
+
+      .logout {
         cursor: pointer;
+
         &:hover {
           color: $secondaryText;
           border-bottom: 1px solid $secondaryText;
@@ -110,19 +112,67 @@ header {
 main {
   font-family: Font-Regular;
   background-color: $primary;
-  .aboutus{
-    .header{
+
+  .contact {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    flex-direction: column;
+
+    button {
+      width: 25%;
+      font-family: Font-Regular;
+      font-size: 16px;
+      background-color: #FEBD69;
+      color: #051E2E;
+
+      &:hover {
+        cursor: pointer;
+        color: $secondaryText;
+        background-color: $primary;
+        transition: 0.5s;
+      }
+    }
+
+    .button{
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    h1 {
+      font-family: Font-Bold;
+      color: $secondaryText;
+      text-align: center;
+      padding-bottom: 2%;
+    }
+
+    form {
+      width: 30%;
+      height: 60vh;
+      background-color: white;
+      border-radius: 7px;
+      padding: 1.5%;
+    }
+  }
+
+  .aboutus {
+    .header {
       height: 80vh;
       background-image: url(../src/images/fashionshop.jpg);
       background-repeat: no-repeat;
       background-size: cover;
     }
-    .body{
+
+    .body {
       padding: 5%;
       display: flex;
       justify-content: space-evenly;
       gap: 5%;
-      .left{
+
+      .left {
         width: 30%;
         justify-content: center;
         font-size: 30px;
@@ -131,7 +181,8 @@ main {
         display: flex;
         align-items: center;
       }
-      .right{
+
+      .right {
         width: 60%;
         font-family: Font-Light;
         color: $secondaryText;
@@ -200,7 +251,8 @@ footer {
   align-items: center;
   height: 85vh;
   flex-direction: column;
-  .info{
+
+  .info {
     position: absolute;
     background-color: $secondary;
     width: 25%;
@@ -209,7 +261,8 @@ footer {
     left: 55%;
     top: 48%;
   }
-  .message{
+
+  .message {
     background-color: white;
     margin-top: 2%;
     color: red;
@@ -217,51 +270,56 @@ footer {
     border-radius: 7px;
     font-family: Font-Light;
   }
-  h1{
-    padding-bottom: 1%;
-  }
+
   form {
     width: 30%;
     height: 60vh;
     background-color: white;
     border-radius: 7px;
     padding: 1.5%;
-    .eye{
-      &:hover{
+
+    .eye {
+      &:hover {
         cursor: pointer;
         color: $secondaryText;
         transition: 0.5s;
       }
     }
-    h1{
+
+    h1 {
       font-family: Font-Bold;
       color: $secondaryText;
       text-align: center;
       padding-bottom: 2%;
     }
-    .policy{
+
+    .policy {
       font-family: Font-Light;
       font-size: 10px;
       padding-bottom: 2%;
     }
-    .sign{
+
+    .sign {
       width: 25%;
       font-family: Font-Regular;
       font-size: 16px;
       background-color: #FEBD69;
       color: #051E2E;
-      &:hover{
+
+      &:hover {
         cursor: pointer;
         color: $secondaryText;
         background-color: $primary;
         transition: 0.5s;
       }
     }
-    .button{
+
+    .button {
       display: flex;
       justify-content: center;
     }
-    input{
+
+    input {
       margin-bottom: 2%;
       width: 60%;
       padding: 1%;
@@ -277,7 +335,8 @@ footer {
   align-items: center;
   height: 85vh;
   flex-direction: column;
-  .message{
+
+  .message {
     background-color: white;
     margin-top: 2%;
     color: red;
@@ -285,49 +344,65 @@ footer {
     border-radius: 7px;
     font-family: Font-Light;
   }
-  h1{
+
+  h1 {
     padding-bottom: 1%;
   }
+
   form {
     width: 30%;
     height: 50vh;
     background-color: white;
     border-radius: 7px;
     padding: 1.5%;
-    h1{
+
+    h1 {
       font-family: Font-Bold;
       color: $secondaryText;
       text-align: center;
       padding-bottom: 2%;
     }
-    .policy{
+
+    .policy {
       font-family: Font-Light;
       font-size: 10px;
       padding-bottom: 2%;
     }
-    .sign{
+
+    .sign {
       width: 25%;
       font-family: Font-Regular;
       font-size: 16px;
       background-color: #FEBD69;
       color: #051E2E;
-      &:hover{
+
+      &:hover {
         cursor: pointer;
         color: $secondaryText;
         background-color: $primary;
         transition: 0.5s;
       }
     }
-    .button{
+
+    .button {
       display: flex;
       justify-content: center;
     }
-    input{
+
+    input {
       margin-bottom: 2%;
       width: 60%;
       padding: 1%;
       font-family: Font-Regular;
       border-radius: 5px;
+    }
+
+    .eye {
+      &:hover {
+        cursor: pointer;
+        color: $secondaryText;
+        transition: 0.5s;
+      }
     }
   }
 }

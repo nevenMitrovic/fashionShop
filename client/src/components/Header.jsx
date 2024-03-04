@@ -10,8 +10,9 @@ import { messageNull, signO } from '../redux/slice/signSlice';
 const Header = () => {
 
     const { open } = useSelector(state => state.menu);
-    const {isSignIn,username}=useSelector(state=> state.signIn);
+    const { isSignIn, username } = useSelector(state => state.signIn);
     const dispatch = useDispatch();
+
 
     const openMenu = () => {
         let obj = { open: true };
@@ -33,10 +34,9 @@ const Header = () => {
         dispatch(messageNull(obj));
     }
 
-    const logOut=()=>{
-        const obj={signOut:false};
+    const logOut = () => {
+        const obj = { signOut: false, token: null };
         dispatch(signO(obj));
-        localStorage.removeItem('token');
     }
 
 
@@ -52,9 +52,9 @@ const Header = () => {
                 </ul>
                 <div className="right">
                     <ul className='r'>
-                        {   !isSignIn?
-                            (<li className='log'><Link to='/signup' onClick={() => { setNull(); setMessageNull() }}>Sign up</Link> / <Link to='/signin' onClick={() => setNull()}>Sign in</Link></li>):
-                            (<li className='log'>{username} / <span className='logout' onClick={()=>logOut()}>LogOut</span></li>)
+                        {!isSignIn ?
+                            (<li className='log'><Link to='/signup' onClick={() => { setNull(); setMessageNull() }}>Sign up</Link> / <Link to='/signin' onClick={() => setNull()}>Sign in</Link></li>) :
+                            (<li className='log'>{username} / <span className='logout' onClick={() => logOut()}>LogOut</span></li>)
                         }
                         <li><Link to='/cart' onClick={() => { setNull(); setMessageNull() }}><i className="fa-solid fa-cart-shopping"></i></Link></li>
                     </ul>

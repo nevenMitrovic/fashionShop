@@ -1,4 +1,5 @@
 const User = require("../model/userModel");
+const Message=require("../model/messageModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { getAll, getById } = require("../methods/methods");
@@ -79,9 +80,22 @@ const productID = async (req, res) => {
   }
 };
 
+const messagePost=async(req,res)=>{
+  try{
+  const {username,message}=req.body;
+  const contactMessage=new Message({username,message});
+  await contactMessage.save();
+  res.status(201).json({message:'Poruka je uspesno poslata!'});
+  }catch(error){
+    console.log(error);
+    res.status(500).json({error});
+  }
+}
+
 module.exports = {
   register,
   login,
   getAllProducts,
   productID,
+  messagePost
 };
