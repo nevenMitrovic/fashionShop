@@ -148,6 +148,7 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
+
         .button {
           width: 25%;
           font-family: Font-Regular;
@@ -217,6 +218,52 @@ main {
       background-color: white;
       border-radius: 7px;
       padding: 1.5%;
+    }
+  }
+
+  .shop {
+    background-color: $primary;
+
+    .field{
+      display: flex;
+      .filters{
+        height: 100vh;
+        width: 30%;
+        background-color: $secondary;
+        border: 1px solid $secondaryText;
+      }
+      .products{
+        width: 100%;
+        background-color: $secondary;
+        border: 1px solid $secondaryText;
+      }
+    }
+
+    .error{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      color: $secondaryText;
+    }
+
+    .shopNav {
+      padding: 1% 5%;
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        font-size: 25px;
+        font-family: Font-Bold;
+
+        a {
+          color: $secondary;
+
+          &:hover {
+            color: $secondaryText;
+            transition: 0.5s;
+          }
+        }
+      }
     }
   }
 
