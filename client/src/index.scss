@@ -113,6 +113,59 @@ main {
   font-family: Font-Regular;
   background-color: $primary;
 
+  .error {
+    height: 85vh;
+    font-family: Font-Regular;
+    color: $secondaryText;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+
+    .elements {
+
+      width: 60%;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      h1 {
+        font-size: 250px;
+        font-family: Font-Bold;
+      }
+
+      h3 {
+        font-size: 50px;
+      }
+
+      p {
+        padding-bottom: 2%;
+      }
+
+      a {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .button {
+          width: 25%;
+          font-family: Font-Regular;
+          font-size: 16px;
+          background-color: #FEBD69;
+          color: #051E2E;
+
+          &:hover {
+            cursor: pointer;
+            color: $secondaryText;
+            background-color: $primary;
+            transition: 0.5s;
+          }
+        }
+      }
+    }
+  }
+
   .contact {
     height: 85vh;
     display: flex;
@@ -120,6 +173,15 @@ main {
     align-items: center;
     height: 85vh;
     flex-direction: column;
+
+    .message {
+      background-color: white;
+      margin-top: 2%;
+      color: red;
+      padding: 1%;
+      border-radius: 7px;
+      font-family: Font-Light;
+    }
 
     button {
       width: 25%;
@@ -136,7 +198,7 @@ main {
       }
     }
 
-    .button{
+    .button {
       display: flex;
       justify-content: center;
       margin-top: 15px;

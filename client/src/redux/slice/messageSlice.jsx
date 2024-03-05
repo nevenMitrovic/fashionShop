@@ -1,18 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState={
-    messageContact: null
+const initialState = {
+    infoMessage: null
 }
 
-let contactSlice=createSlice({
-    name:'contact',
+let contactSlice = createSlice({
+    name: 'contact',
     initialState,
-    reducers:{
-        updateMessage(state,action){
-            state.messageContact=action.payload.message;
+    reducers: {
+        updateInfo(state, action) {
+            state.infoMessage = action.payload.info;
+        },
+        updateInfoNull(state,action){
+            state.infoMessage=action.payload.null;
         }
     }
 });
 
-export const {updateMessage}=contactSlice.actions;
-export default contactSlice=contactSlice.reducer;
+export const { updateInfo,updateInfoNull } = contactSlice.actions;
+export default contactSlice = contactSlice.reducer;

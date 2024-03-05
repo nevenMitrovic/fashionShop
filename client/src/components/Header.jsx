@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setMenu } from '../redux/slice/menuSlice';
 import { registerNull } from '../redux/slice/registerSlice';
 import { messageNull, signO } from '../redux/slice/signSlice';
+import { updateInfoNull } from '../redux/slice/messageSlice';
+
 
 
 
@@ -35,37 +37,42 @@ const Header = () => {
     }
 
     const logOut = () => {
-        const obj = { signOut: false, token: null };
+        const obj = { signOut: false, token: null, username: null };
         dispatch(signO(obj));
+    }
+
+    const updateInfoMessage=()=>{
+        const obj={null:null};
+        dispatch(updateInfoNull(obj));
     }
 
 
     return (
         <>
             <header>
-                <div className="logo"><Link to='/' onClick={() => { setNull(); setMessageNull() }}><img src={slika} alt="logo" /></Link></div>
+                <div className="logo"><Link to='/' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}><img src={slika} alt="logo" /></Link></div>
                 <ul className='nav'>
-                    <li><Link to='/' onClick={() => { setNull(); setMessageNull() }}>Home</Link></li>
-                    <li onMouseEnter={() => { setNull(); setMessageNull() }} onMouseLeave={() => closeMenu()}><Link to='/shop' onClick={() => setNull()}>Shop</Link></li>
-                    <li><Link to='/about' onClick={() => { setNull(); setMessageNull() }}>About Us</Link></li>
-                    <li><Link to='/contact' onClick={() => { setNull(); setMessageNull() }}>Contact</Link></li>
+                    <li><Link to='/' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Home</Link></li>
+                    <li onMouseEnter={() => { setNull(); setMessageNull(); updateInfoMessage(); openMenu() }} onMouseLeave={() => closeMenu()}><Link to='/shop' onClick={() => setNull()}>Shop</Link></li>
+                    <li><Link to='/about' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>About Us</Link></li>
+                    <li><Link to='/contact' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Contact</Link></li>
                 </ul>
                 <div className="right">
                     <ul className='r'>
                         {!isSignIn ?
-                            (<li className='log'><Link to='/signup' onClick={() => { setNull(); setMessageNull() }}>Sign up</Link> / <Link to='/signin' onClick={() => setNull()}>Sign in</Link></li>) :
+                            (<li className='log'><Link to='/signup' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Sign up</Link> / <Link to='/signin' onClick={() => setNull()}>Sign in</Link></li>) :
                             (<li className='log'>{username} / <span className='logout' onClick={() => logOut()}>LogOut</span></li>)
                         }
-                        <li><Link to='/cart' onClick={() => { setNull(); setMessageNull() }}><i className="fa-solid fa-cart-shopping"></i></Link></li>
+                        <li><Link to='/cart' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}><i className="fa-solid fa-cart-shopping"></i></Link></li>
                     </ul>
                 </div>
             </header>
             {open &&
                 <div className="dropDown" onMouseEnter={() => openMenu()} onMouseLeave={() => closeMenu()}>
                     <ul>
-                        <li><Link to='/woman' onClick={() => { setNull(); setMessageNull() }}>Woman</Link></li>
-                        <li><Link to='/man' onClick={() => { setNull(); setMessageNull() }}>Man</Link></li>
-                        <li><Link to='/sale' onClick={() => { setNull(); setMessageNull() }}>Sale</Link></li>
+                        <li><Link to='/woman' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Woman</Link></li>
+                        <li><Link to='/man' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Man</Link></li>
+                        <li><Link to='/sale' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Sale</Link></li>
                     </ul>
                 </div>
             }

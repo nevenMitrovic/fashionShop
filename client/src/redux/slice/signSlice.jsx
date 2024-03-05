@@ -23,6 +23,7 @@ let signInSlice = createSlice({
         signO(state,action){
             state.isSignIn=action.payload.signOut;
             state.token=action.payload.token;
+            state.username=action.payload.username;
         }
     }
 });
