@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MoonLoader from "react-spinners/MoonLoader";
 import useFetch from '../helpers/useFetch';
-import { getProducts } from '../redux/slice/productSlice';
 import Filter from '../components/Filter';
 import GenderFilter from '../components/GenderFilter';
 import SaleFilter from '../components/SaleFilter';
@@ -12,19 +11,11 @@ import ProductCard from '../components/ProductCard';
 const Shop = () => {
 
   const dispatch = useDispatch();
-  const { data, isLoading, error } = useFetch('http://localhost:5000/fashionshop/products/getAllProducts');
-
-
-
-
-  if (!isLoading && !error) {
-    let obj = { products: data };
-    dispatch(getProducts(obj));
-  }
-
+  const { isLoading, error } = useFetch('http://localhost:5000/fashionshop/products/getAllProducts');
+  const { allProducts, search, range, checkbox } = useSelector(state => state.products);
   const override = {
     display: "block",
-    margin: "0 auto",
+    margin: "0 150%",
     borderColor: "red",
   };
 
@@ -58,8 +49,8 @@ const Shop = () => {
       <div className="field">
         <div className="filters">
           <Filter />
-          <GenderFilter/>
-          <SaleFilter/>
+          <GenderFilter />
+          <SaleFilter />
         </div>
         <div className="products">
           {isLoading ? (
@@ -72,9 +63,44 @@ const Shop = () => {
             />
           ) : (
             <>
-              {data.map(product=>{
-              return  <ProductCard product={product} key={product._id}/>
-              })}
+              {
+                allProducts.filter(e => {
+                  if (search === null) {
+                    return e;
+                  }
+                  else {
+                    if ((e.title.toLowerCase().includes(search.toLowerCase().trim())))
+                      return e;
+                  }
+                })
+                .filter(e=>{
+                  if (range === null) {
+                    return e;
+                  } else {
+                    if (e.sale) {
+                      let newPrice = parseInt(e.price - e.price * e.percentage / 100);
+                      if (newPrice <= range) {
+                        return e;
+                      }
+                    } else {
+                      if (e.price <= range) {
+                        return e;
+                      }
+                    }
+                  }
+                })
+                .filter(e=>{
+                  if(checkbox.length===0){
+                    return e;
+                  }else{
+                    for(let i=0;i<checkbox.length;i++){
+                      if(e.category===checkbox[i]) return e;
+                    }
+                  }
+                })
+                  .map(product => {
+                    return (<ProductCard product={product} key={product._id} />)
+                  })}
             </>
           )}
         </div>
