@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getProducts } from "../redux/slice/productSlice";
 
 
 const useFetch = (url) => {
@@ -19,8 +18,6 @@ const useFetch = (url) => {
                 setData(response)
                 setIsLoading(false);
                 setError(false);
-                let obj = { products: response };
-                dispatch(getProducts(obj));
             } catch (error) {
                 const err = { error };
                 setIsLoading(false);

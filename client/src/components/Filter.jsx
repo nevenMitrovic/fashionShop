@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { searchFilter, rangeFilter, checkFilter } from "../redux/slice/productSlice";
+import { searchFilter, rangeFilter, checkFilter } from "../redux/slice/filterSlice";
 
 
 

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { comboSaleNew } from "../redux/slice/productSlice";
+import { comboSaleNew } from "../redux/slice/filterSlice";
 
 
 

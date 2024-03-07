@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { comboGender } from "../redux/slice/productSlice";
+import { comboGender } from "../redux/slice/filterSlice";
 
 
 const GenderFilter = () => {

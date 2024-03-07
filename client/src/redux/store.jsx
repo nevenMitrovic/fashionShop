@@ -3,6 +3,7 @@ import menuSlice from "./slice/menuSlice";
 import registerSlice from "./slice/registerSlice";
 import signInSlice from './slice/signSlice';
 import contactSlice from './slice/messageSlice';
+import filterSlice from "./slice/filterSlice";
 import productSlice from "./slice/productSlice";
 
 const store = configureStore({
@@ -11,7 +12,8 @@ const store = configureStore({
         register: registerSlice,
         signIn: signInSlice,
         contact: contactSlice,
-        products: productSlice
+        filters: filterSlice,
+        product: productSlice
     }
 })
 

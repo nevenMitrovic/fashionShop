@@ -11,9 +11,10 @@ import ProductCard from '../components/ProductCard';
 const Shop = () => {
 
   const dispatch = useDispatch();
-  const { isLoading, error } = useFetch('http://localhost:5000/fashionshop/products/getAllProducts');
-  const { allProducts, search, range, checkbox, comboGenderState, comboSaleNewState } = useSelector(state => state.products);
-  const override = {
+  const { data, isLoading, error } = useFetch('http://localhost:5000/fashionshop/products/getAllProducts');
+  const { search, range, checkbox, comboGenderState, comboSaleNewState } = useSelector(state => state.filters);
+
+  const moonLoaderStyle = {
     display: "block",
     margin: "0 150%",
     borderColor: "red",
@@ -57,14 +58,14 @@ const Shop = () => {
             <MoonLoader
               color="#045747"
               size={50}
-              cssOverride={override}
+              cssOverride={moonLoaderStyle}
               aria-label="Loading Spinner"
               data-testid="loader"
             />
           ) : (
             <>
               {
-                allProducts.filter(e => {
+                data.filter(e => {
                   if (search === null) {
                     return e;
                   }
@@ -116,8 +117,10 @@ const Shop = () => {
                       }
                     }
                   })
-                  .map(product => {
-                    return (<ProductCard product={product} key={product._id} />)
+                  .map((product) => {
+                    return (
+                    <ProductCard product={product} key={product._id} />
+                    )
                   })}
             </>
           )}
