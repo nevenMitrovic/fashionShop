@@ -291,7 +291,7 @@ main {
           font-size: 12px;
 
           &:hover {
-            transition: 1s;
+            transition: 0.5s;
             transform: scale(1.05);
             cursor: pointer;
           }
@@ -306,7 +306,6 @@ main {
           .button {
             font-family: Font-Regular;
             font-size: 16px;
-            background-color: #FEBD69;
             color: #051E2E;
             display: flex;
             justify-content: center;
@@ -315,8 +314,8 @@ main {
             &:hover {
               cursor: pointer;
               color: $secondaryText;
-              background-color: $primary;
               transition: 0.5s;
+              border-bottom: 1px solid $secondaryText;
             }
           }
 

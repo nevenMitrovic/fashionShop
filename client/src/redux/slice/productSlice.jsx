@@ -5,7 +5,9 @@ const initialState = {
     allProducts: null,
     search: null,
     range: null,
-    checkbox:[],
+    checkbox: [],
+    comboGenderState: "0",
+    comboSaleNewState: "0"
 };
 
 let productSlice = createSlice({
@@ -15,20 +17,27 @@ let productSlice = createSlice({
         getProducts(state, action) {
             state.allProducts = action.payload.products;
         },
-        searchFilter(state,action){
-            state.search=action.payload.value;
+        searchFilter(state, action) {
+            state.search = action.payload.value;
         },
-        rangeFilter(state,action){
-            state.range=action.payload.value;
+        rangeFilter(state, action) {
+            state.range = action.payload.value;
         },
-        checkFilter(state,action){
-            if(action.payload.state){
+        checkFilter(state, action) {
+            if (action.payload.state) {
                 state.checkbox.push(action.payload.value);
-            }else{
-                state.checkbox=state.checkbox.filter(e=>e!==action.payload.value);
+            } else {
+                state.checkbox = state.checkbox.filter(e => e !== action.payload.value);
             }
+        },
+        comboGender(state, action) {
+            state.comboGenderState = action.payload.value;
+        },
+        comboSaleNew(state, action) {
+            state.comboSaleNewState = action.payload.value;
         }
-}});
+    }
+});
 
-export const { getProducts,searchFilter,rangeFilter, checkFilter } = productSlice.actions;
+export const { getProducts, searchFilter, rangeFilter, checkFilter, comboGender, comboSaleNew } = productSlice.actions;
 export default productSlice = productSlice.reducer;

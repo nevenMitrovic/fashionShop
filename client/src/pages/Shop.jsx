@@ -12,7 +12,7 @@ const Shop = () => {
 
   const dispatch = useDispatch();
   const { isLoading, error } = useFetch('http://localhost:5000/fashionshop/products/getAllProducts');
-  const { allProducts, search, range, checkbox } = useSelector(state => state.products);
+  const { allProducts, search, range, checkbox, comboGenderState, comboSaleNewState } = useSelector(state => state.products);
   const override = {
     display: "block",
     margin: "0 150%",
@@ -73,31 +73,49 @@ const Shop = () => {
                       return e;
                   }
                 })
-                .filter(e=>{
-                  if (range === null) {
-                    return e;
-                  } else {
-                    if (e.sale) {
-                      let newPrice = parseInt(e.price - e.price * e.percentage / 100);
-                      if (newPrice <= range) {
-                        return e;
-                      }
+                  .filter(e => {
+                    if (range === null) {
+                      return e;
                     } else {
-                      if (e.price <= range) {
-                        return e;
+                      if (e.sale) {
+                        let newPrice = parseInt(e.price - e.price * e.percentage / 100);
+                        if (newPrice <= range) {
+                          return e;
+                        }
+                      } else {
+                        if (e.price <= range) {
+                          return e;
+                        }
                       }
                     }
-                  }
-                })
-                .filter(e=>{
-                  if(checkbox.length===0){
-                    return e;
-                  }else{
-                    for(let i=0;i<checkbox.length;i++){
-                      if(e.category===checkbox[i]) return e;
+                  })
+                  .filter(e => {
+                    if (checkbox.length === 0) {
+                      return e;
+                    } else {
+                      for (let i = 0; i < checkbox.length; i++) {
+                        if (e.category === checkbox[i]) return e;
+                      }
                     }
-                  }
-                })
+                  })
+                  .filter(e => {
+                    if (comboGenderState === "0") {
+                      return e;
+                    } else {
+                      if (comboGenderState === e.gender) return e;
+                    }
+                  })
+                  .filter(e => {
+                    if (comboSaleNewState === "0") {
+                      return e;
+                    } else {
+                      if (comboSaleNewState === "s") {
+                        if (e.sale === true) return e;
+                      } else {
+                        if (e.new === true) return e;
+                      }
+                    }
+                  })
                   .map(product => {
                     return (<ProductCard product={product} key={product._id} />)
                   })}

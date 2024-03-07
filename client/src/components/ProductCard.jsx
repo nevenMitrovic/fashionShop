@@ -18,7 +18,7 @@ const ProductCard = ({product}) => {
               <span className="standardPrice">{product.price} RSD</span>
             )}
           </div>
-          <button className="button">Dodaj u korpu</button>
+          <p className="button">Pogledaj artikal</p>
     </div>
   )
 }
