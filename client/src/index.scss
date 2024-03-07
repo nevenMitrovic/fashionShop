@@ -96,6 +96,17 @@ header {
       justify-content: space-between;
       width: 100%;
 
+      .cart {
+        .length {
+          display: block;
+          position: absolute;
+          top: 2.2%;
+          right: 11.3%;
+          font-size: 10px;
+          color: red;
+        }
+      }
+
       .logout {
         cursor: pointer;
 
@@ -113,12 +124,110 @@ main {
   font-family: Font-Regular;
   background-color: $primary;
 
+
   .product {
     height: 85vh;
     padding: 2% 5%;
+    display: flex;
+
+    .back {
+      position: absolute;
+      font-size: 30px;
+      color: $secondaryText;
+      left: 1%;
+      top: 10%;
+
+      &:hover {
+        cursor: pointer;
+        color: white;
+        transition: 0.5s;
+      }
+    }
+
+    .right {
+      color: $secondaryText;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 2px;
+      font-size: 20px;
+      padding: 2%;
+
+      h2 {
+        font-size: 40px;
+        padding-bottom: 5%;
+      }
+
+      .oldPrice {
+        text-decoration: line-through;
+        color: red;
+      }
+
+      .newPrice {
+        padding: 2% 0;
+      }
+
+      .action {
+        padding: 2% 0;
+      }
+
+      .desc {
+        font-family: Font-Thin;
+        font-size: 15px;
+        padding: 2% 0;
+      }
+      .message{
+        color: red;
+        font-size: 15px;
+        padding-left: 2%;
+      }
+
+      #size {
+        margin: 2% 0;
+        border-radius: 10px;
+        font-family: Font-Regular;
+        font-size: 15px;
+        background-color: $secondaryText;
+        color: $primary;
+        text-align: center;
+
+        &:hover {
+          cursor: pointer;
+          color: white;
+          background-color: $secondaryText;
+          transition: 0.5s;
+        }
+      }
+
+      .add {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .button {
+          width: 25%;
+          font-family: Font-Regular;
+          font-size: 16px;
+          background-color: #FEBD69;
+          color: #051E2E;
+          display: flex;
+          justify-content: center;
+
+
+          &:hover {
+            cursor: pointer;
+            color: white;
+            background-color: $secondaryText;
+            transition: 0.5s;
+          }
+        }
+      }
+    }
 
     .image {
       width: 30%;
+
       img {
         max-width: 100%;
         border-radius: 10px;

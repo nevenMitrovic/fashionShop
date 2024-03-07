@@ -4,6 +4,8 @@ import registerSlice from "./slice/registerSlice";
 import signInSlice from './slice/signSlice';
 import contactSlice from './slice/messageSlice';
 import filterSlice from "./slice/filterSlice";
+import cartSlice from "./slice/cartSlice";
+
 
 const store = configureStore({
     reducer: {
@@ -12,6 +14,7 @@ const store = configureStore({
         signIn: signInSlice,
         contact: contactSlice,
         filters: filterSlice,
+        cart: cartSlice
     }
 })
 

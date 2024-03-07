@@ -13,6 +13,7 @@ const Header = () => {
 
     const { open } = useSelector(state => state.menu);
     const { isSignIn, username } = useSelector(state => state.signIn);
+    const { cart } = useSelector(state => state.cart);
     const dispatch = useDispatch();
 
 
@@ -41,8 +42,8 @@ const Header = () => {
         dispatch(signO(obj));
     }
 
-    const updateInfoMessage=()=>{
-        const obj={null:null};
+    const updateInfoMessage = () => {
+        const obj = { null: null };
         dispatch(updateInfoNull(obj));
     }
 
@@ -63,7 +64,7 @@ const Header = () => {
                             (<li className='log'><Link to='/signup' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Sign up</Link> / <Link to='/signin' onClick={() => setNull()}>Sign in</Link></li>) :
                             (<li className='log'>{username} / <span className='logout' onClick={() => logOut()}>LogOut</span></li>)
                         }
-                        <li><Link to='/cart' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}><i className="fa-solid fa-cart-shopping"></i></Link></li>
+                        <li className='cart'><Link to='/cart' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}><i className="fa-solid fa-cart-shopping"><span className='length'>{cart.length===0?(<></>):(cart.length)}</span></i></Link></li>
                     </ul>
                 </div>
             </header>
