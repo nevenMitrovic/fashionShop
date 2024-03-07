@@ -11,6 +11,7 @@ import Error from './pages/Error';
 import Woman from './pages/Woman';
 import Man from './pages/Man';
 import Sale from './pages/Sale';
+import Product from './components/Product';
 
 
 
@@ -32,6 +33,7 @@ function App() {
               <Route path='/woman' element={<Woman/>}></Route>
               <Route path='/man' element={<Man/>}></Route>
               <Route path='/sale' element={<Sale/>}></Route>
+              <Route path='/product/:id' element={<Product/>}></Route>
               <Route path='*' element={<Error/>}></Route>
           </Route>
         </Routes>

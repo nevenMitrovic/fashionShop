@@ -119,7 +119,7 @@ const Shop = () => {
                   })
                   .map((product) => {
                     return (
-                    <ProductCard product={product} key={product._id} />
+                    <Link key={product._id} to={`/product/${product._id}`}><ProductCard product={product} key={product._id} /></Link>
                     )
                   })}
             </>

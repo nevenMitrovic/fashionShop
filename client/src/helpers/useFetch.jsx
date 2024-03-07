@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 
+
 const useFetch = (url) => {
 
     const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const useFetch = (url) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        let obj;
         const fetchData = async () => {
             try {
                 const server = await fetch(url);
