@@ -8,12 +8,15 @@ const port=process.env.PORT || 3000;
 const {userRouter}=require('./router/usersRouter');
 const { productRouter } = require('./router/productsRouter');
 const { contactRouter } = require('./router/messageRouter');
+const { ordersRouter } = require('./router/ordersRouter');
+
 
 app.use(express.json());
 app.use(cors());
 app.use('/fashionshop/users',userRouter);
 app.use('/fashionshop/products',productRouter);
-app.use('/fashionshop/contact/',contactRouter)
+app.use('/fashionshop/contact/',contactRouter);
+app.use('/fashionshop/users/',ordersRouter);
 
 mongoose.connect('mongodb://localhost:27017/fashionshop');
 

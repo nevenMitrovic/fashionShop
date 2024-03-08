@@ -129,32 +129,34 @@ main {
     color: $secondaryText;
     overflow-y: scroll;
 
-    .total{
+    .total {
       display: flex;
       justify-content: flex-end;
       align-items: center;
       gap: 3%;
       padding: 2% 5%;
     }
-    .buy{
+
+    .buy {
       display: flex;
       justify-content: flex-end;
       padding: 0 5%;
-      button{
-          width: 10%;
-          font-family: Font-Regular;
-          font-size: 16px;
-          background-color: #FEBD69;
-          color: #051E2E;
-          display: flex;
-          justify-content: center;
-          margin-bottom: 2%;
-  
-          &:hover {
-            cursor: pointer;
-            color: white;
-            background-color: $secondaryText;
-            transition: 0.5s;
+
+      button {
+        width: 10%;
+        font-family: Font-Regular;
+        font-size: 16px;
+        background-color: #FEBD69;
+        color: #051E2E;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2%;
+
+        &:hover {
+          cursor: pointer;
+          color: white;
+          background-color: $secondaryText;
+          transition: 0.5s;
         }
       }
     }
@@ -163,7 +165,7 @@ main {
       padding: 2% 5%;
       width: 100%;
 
-      .info{
+      .info {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -194,26 +196,30 @@ main {
           }
 
         }
-        td{
+
+        td {
           display: flex;
           align-items: center;
           justify-content: center;
         }
 
-        .quantity{
+        .quantity {
           font-size: 40px;
           gap: 15%;
-          .inc,.decr{
-            &:hover{
+
+          .inc,
+          .decr {
+            &:hover {
               cursor: pointer;
               color: white;
             }
           }
         }
 
-        .remove{
+        .remove {
           font-size: 40px;
-          &:hover{
+
+          &:hover {
             cursor: pointer;
             color: white;
           }
@@ -591,6 +597,117 @@ main {
         }
       }
     }
+  }
+}
+
+.home{
+  .slider{
+    img{
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+.manwomansale {
+  background-color: $primary;
+
+  .field {
+    display: flex;
+
+    .filters {
+      height: 85vh;
+      width: 30%;
+      background-color: $secondary;
+      border: 1px solid $secondaryText;
+
+      .search {
+        input {
+          width: 65%;
+        }
+      }
+
+      .saleFilter {
+        padding: 5% 0;
+      }
+    }
+
+    .products {
+      width: 100%;
+      height: 85vh;
+      background-color: white;
+      border: 1px solid $secondaryText;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5%;
+      padding: 1% 5%;
+
+      a {
+        color: $primary;
+      }
+
+      .productCard {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid $secondary;
+        border-radius: 10px;
+        box-shadow: 4px 3px 10px $secondaryText;
+        padding: 2%;
+        font-size: 12px;
+
+        &:hover {
+          transition: 0.5s;
+          transform: scale(1.05);
+          cursor: pointer;
+        }
+
+        .img {
+          img {
+            border-radius: 10px;
+            max-width: 100%;
+          }
+        }
+
+        .button {
+          font-family: Font-Regular;
+          font-size: 16px;
+          color: #051E2E;
+          display: flex;
+          justify-content: center;
+          margin: 2% 0;
+
+          &:hover {
+            cursor: pointer;
+            color: $secondaryText;
+            transition: 0.5s;
+          }
+        }
+
+        .title {
+          padding: 2% 0;
+        }
+
+        .price {
+          .oldPrice {
+            text-decoration: line-through;
+            color: red;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: $secondaryText;
   }
 }
 

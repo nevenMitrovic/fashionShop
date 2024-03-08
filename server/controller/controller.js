@@ -1,8 +1,9 @@
 const User = require("../model/userModel");
-const Message=require("../model/messageModel");
+const Message = require("../model/messageModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { getAll, getById } = require("../methods/methods");
+const Order = require("../model/orderSchema");
 
 const register = async (req, res) => {
   try {
@@ -47,9 +48,11 @@ const login = async (req, res) => {
           res.status(403).json({ message: "Nisu ispravni kredencijali!" });
         } else {
           const token = jwt.sign({ userID: user._id }, process.env.secretkey);
-          res
-            .status(200)
-            .json({ message: "Uspesno ste se ulogovali!", token: token, username });
+          res.status(200).json({
+            message: "Uspesno ste se ulogovali!",
+            token: token,
+            username,
+          });
         }
       });
     }
@@ -80,22 +83,35 @@ const productID = async (req, res) => {
   }
 };
 
-const messagePost=async(req,res)=>{
-  try{
-  const {username,message}=req.body;
-  const contactMessage=new Message({username,message});
-  await contactMessage.save();
-  res.status(201).json({message:'Poruka je uspesno poslata!'});
-  }catch(error){
+const messagePost = async (req, res) => {
+  try {
+    const { username, message } = req.body;
+    const contactMessage = new Message({ username, message });
+    await contactMessage.save();
+    res.status(201).json({ message: "Poruka je uspesno poslata!" });
+  } catch (error) {
     console.log(error);
-    res.status(500).json({error});
+    res.status(500).json({ error });
   }
-}
+};
+
+const orderPost = async (req, res) => {
+  try {
+    const { username, order } = req.body;
+    const userOrder = new Order({ username, order });
+    await userOrder.save();
+    res.status(201).json({ message: "Uspesna porudzbina!" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error });
+  }
+};
 
 module.exports = {
   register,
   login,
   getAllProducts,
   productID,
-  messagePost
+  messagePost,
+  orderPost,
 };
