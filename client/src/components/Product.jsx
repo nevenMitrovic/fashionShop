@@ -17,11 +17,10 @@ const Product = () => {
     const dispatch = useDispatch();
 
 
-    const addItem = () => { //QUANTITY
+    const addItem = () => { 
         if (size !== '0') {
             if (sale) {
                 const obj = { id, title, sale, category, description, gender, image, price: Math.ceil(price - price * percentage / 100), percentage, size };
-                console.log(obj)
                 dispatch(addToCart(obj));
                 setMessage('');
             } else {

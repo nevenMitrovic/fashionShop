@@ -6,6 +6,8 @@ import Filter from '../components/Filter';
 import GenderFilter from '../components/GenderFilter';
 import SaleFilter from '../components/SaleFilter';
 import ProductCard from '../components/ProductCard';
+import ServerError from './ServerError';
+
 
 
 const Shop = () => {
@@ -30,9 +32,7 @@ const Shop = () => {
             <li><Link to="/sale">Sale</Link></li>
           </ul>
         </div>
-        <div className="error">
-          <p>{error.error}</p>
-        </div>
+        <ServerError/>
       </div>
     )
   }

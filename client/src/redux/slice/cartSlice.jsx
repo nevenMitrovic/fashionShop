@@ -9,7 +9,13 @@ let cartSlice=createSlice({
     initialState,
     reducers:{
         addToCart(state,action){
-            state.cart.push(action.payload);
+            let product=state.cart.find(e=>e._id===action.payload._id);
+            if(product===undefined){
+                action.payload.quantity=1;
+                state.cart.push(action.payload);
+            }else{
+                product.quantity+=1;
+            }
         }
     }
 });

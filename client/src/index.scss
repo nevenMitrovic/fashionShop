@@ -124,73 +124,164 @@ main {
   font-family: Font-Regular;
   background-color: $primary;
 
-
-  .product {
+  .cart {
     height: 85vh;
-    padding: 2% 5%;
-    display: flex;
+    color: $secondaryText;
 
-    .back {
-      position: absolute;
-      font-size: 30px;
-      color: $secondaryText;
-      left: 1%;
-      top: 10%;
+    table {
+      padding: 2% 5%;
+      width: 100%;
+
+      tr {
+        border-bottom: 1px solid $secondaryText;
+        justify-content: space-evenly;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      .item {
+        border-bottom: 1px solid $secondaryText;
+
+        .title {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .img {
+            width: 20%;
+            margin: 2%;
+
+            img {
+              max-width: 100%;
+            }
+          }
+
+        }
+        td{
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .quantity{
+          font-size: 40px;
+          gap: 15%;
+          .inc,.decr{
+            &:hover{
+              cursor: pointer;
+              color: white;
+            }
+          }
+        }
+
+        .remove{
+          font-size: 40px;
+          &:hover{
+            cursor: pointer;
+            color: white;
+          }
+        }
+
+        .size {
+          font-size: 40px;
+        }
+      }
+    }
+  }
+}
+
+
+.product {
+  height: 85vh;
+  padding: 2% 5%;
+  display: flex;
+
+  .back {
+    position: absolute;
+    font-size: 30px;
+    color: $secondaryText;
+    left: 1%;
+    top: 10%;
+
+    &:hover {
+      cursor: pointer;
+      color: white;
+      transition: 0.5s;
+    }
+  }
+
+  .right {
+    color: $secondaryText;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 2px;
+    font-size: 20px;
+    padding: 2%;
+
+    h2 {
+      font-size: 40px;
+      padding-bottom: 5%;
+    }
+
+    .oldPrice {
+      text-decoration: line-through;
+      color: red;
+    }
+
+    .newPrice {
+      padding: 2% 0;
+    }
+
+    .action {
+      padding: 2% 0;
+    }
+
+    .desc {
+      font-family: Font-Thin;
+      font-size: 15px;
+      padding: 2% 0;
+    }
+
+    .message {
+      color: red;
+      font-size: 15px;
+      padding-left: 2%;
+    }
+
+    #size {
+      margin: 2% 0;
+      border-radius: 10px;
+      font-family: Font-Regular;
+      font-size: 15px;
+      background-color: $secondaryText;
+      color: $primary;
+      text-align: center;
 
       &:hover {
         cursor: pointer;
         color: white;
+        background-color: $secondaryText;
         transition: 0.5s;
       }
     }
 
-    .right {
-      color: $secondaryText;
-      width: 50%;
+    .add {
+      width: 100%;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 2px;
-      font-size: 20px;
-      padding: 2%;
+      justify-content: center;
 
-      h2 {
-        font-size: 40px;
-        padding-bottom: 5%;
-      }
-
-      .oldPrice {
-        text-decoration: line-through;
-        color: red;
-      }
-
-      .newPrice {
-        padding: 2% 0;
-      }
-
-      .action {
-        padding: 2% 0;
-      }
-
-      .desc {
-        font-family: Font-Thin;
-        font-size: 15px;
-        padding: 2% 0;
-      }
-      .message{
-        color: red;
-        font-size: 15px;
-        padding-left: 2%;
-      }
-
-      #size {
-        margin: 2% 0;
-        border-radius: 10px;
+      .button {
+        width: 25%;
         font-family: Font-Regular;
-        font-size: 15px;
-        background-color: $secondaryText;
-        color: $primary;
-        text-align: center;
+        font-size: 16px;
+        background-color: #FEBD69;
+        color: #051E2E;
+        display: flex;
+        justify-content: center;
+
 
         &:hover {
           cursor: pointer;
@@ -199,327 +290,304 @@ main {
           transition: 0.5s;
         }
       }
-
-      .add {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-
-        .button {
-          width: 25%;
-          font-family: Font-Regular;
-          font-size: 16px;
-          background-color: #FEBD69;
-          color: #051E2E;
-          display: flex;
-          justify-content: center;
-
-
-          &:hover {
-            cursor: pointer;
-            color: white;
-            background-color: $secondaryText;
-            transition: 0.5s;
-          }
-        }
-      }
-    }
-
-    .image {
-      width: 30%;
-
-      img {
-        max-width: 100%;
-        border-radius: 10px;
-      }
     }
   }
 
-  .filt {
-    h2 {
-      text-align: center;
-      padding: 5% 0;
-    }
+  .image {
+    width: 30%;
 
-    .search {
-      padding: 5% 0;
-    }
-
-    .range {
-      padding: 5% 0;
-    }
-
-    .category {
-      padding: 5% 0;
+    img {
+      max-width: 100%;
+      border-radius: 10px;
     }
   }
+}
 
-  .error {
-    height: 85vh;
-    font-family: Font-Regular;
-    color: $secondaryText;
-    display: flex;
-    justify-content: center;
-    padding: 1%;
-
-    .elements {
-
-      width: 60%;
-      background-color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-
-      h1 {
-        font-size: 250px;
-        font-family: Font-Bold;
-      }
-
-      h3 {
-        font-size: 50px;
-      }
-
-      p {
-        padding-bottom: 2%;
-      }
-
-      a {
-        width: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .button {
-          width: 25%;
-          font-family: Font-Regular;
-          font-size: 16px;
-          background-color: #FEBD69;
-          color: #051E2E;
-
-          &:hover {
-            cursor: pointer;
-            color: $secondaryText;
-            background-color: $primary;
-            transition: 0.5s;
-          }
-        }
-      }
-    }
+.filt {
+  h2 {
+    text-align: center;
+    padding: 5% 0;
   }
 
-  .contact {
-    height: 85vh;
+  .search {
+    padding: 5% 0;
+  }
+
+  .range {
+    padding: 5% 0;
+  }
+
+  .category {
+    padding: 5% 0;
+  }
+}
+
+.error {
+  font-family: Font-Regular;
+  color: $secondaryText;
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+
+  .elements {
+
+    width: 60%;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85vh;
     flex-direction: column;
 
-    .message {
-      background-color: white;
-      margin-top: 2%;
-      color: red;
-      padding: 1%;
-      border-radius: 7px;
-      font-family: Font-Light;
-    }
-
-    button {
-      width: 25%;
-      font-family: Font-Regular;
-      font-size: 16px;
-      background-color: #FEBD69;
-      color: #051E2E;
-
-      &:hover {
-        cursor: pointer;
-        color: $secondaryText;
-        background-color: $primary;
-        transition: 0.5s;
-      }
-    }
-
-    .button {
-      display: flex;
-      justify-content: center;
-      margin-top: 15px;
-    }
-
     h1 {
+      font-size: 250px;
       font-family: Font-Bold;
-      color: $secondaryText;
-      text-align: center;
+    }
+
+    h3 {
+      font-size: 50px;
+    }
+
+    p {
       padding-bottom: 2%;
     }
 
-    form {
-      width: 30%;
-      height: 60vh;
-      background-color: white;
-      border-radius: 7px;
-      padding: 1.5%;
-    }
-  }
-
-  .shop {
-    background-color: $primary;
-
-    .field {
-      display: flex;
-
-      .filters {
-        height: 75vh;
-        width: 30%;
-        background-color: $secondary;
-        border: 1px solid $secondaryText;
-
-        .search {
-          input {
-            width: 65%;
-          }
-        }
-
-        .gender {
-          padding: 5% 0;
-        }
-
-        .saleFilter {
-          padding: 5% 0;
-        }
-      }
-
-      .products {
-        width: 100%;
-        height: 75vh;
-        background-color: white;
-        border: 1px solid $secondaryText;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5%;
-        padding: 1% 5%;
-
-        a {
-          color: $primary;
-        }
-
-        .productCard {
-          width: 80%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          border: 1px solid $secondary;
-          border-radius: 10px;
-          box-shadow: 4px 3px 10px $secondaryText;
-          padding: 2%;
-          font-size: 12px;
-
-          &:hover {
-            transition: 0.5s;
-            transform: scale(1.05);
-            cursor: pointer;
-          }
-
-          .img {
-            img {
-              border-radius: 10px;
-              max-width: 100%;
-            }
-          }
-
-          .button {
-            font-family: Font-Regular;
-            font-size: 16px;
-            color: #051E2E;
-            display: flex;
-            justify-content: center;
-            margin: 2% 0;
-
-            &:hover {
-              cursor: pointer;
-              color: $secondaryText;
-              transition: 0.5s;
-            }
-          }
-
-          .title {
-            padding: 2% 0;
-          }
-
-          .price {
-            .oldPrice {
-              text-decoration: line-through;
-              color: red;
-              display: block;
-            }
-          }
-        }
-      }
-    }
-
-    .error {
+    a {
+      width: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 25px;
-      color: $secondaryText;
-    }
 
-    .shopNav {
-      padding: 1% 5%;
+      .button {
+        width: 25%;
+        margin: 2% 0;
+        font-family: Font-Regular;
+        font-size: 16px;
+        background-color: #FEBD69;
+        color: #051E2E;
 
-      .nav {
-        display: flex;
-        justify-content: space-between;
-        font-size: 25px;
-        font-family: Font-Bold;
-
-        a {
-          color: $secondary;
-
-          &:hover {
-            color: $secondaryText;
-            transition: 0.5s;
-          }
+        &:hover {
+          cursor: pointer;
+          color: $secondaryText;
+          background-color: $primary;
+          transition: 0.5s;
         }
-      }
-    }
-  }
-
-  .aboutus {
-    .header {
-      height: 80vh;
-      background-image: url(../src/images/fashionshop.jpg);
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    .body {
-      padding: 5%;
-      display: flex;
-      justify-content: space-evenly;
-      gap: 5%;
-
-      .left {
-        width: 30%;
-        justify-content: center;
-        font-size: 30px;
-        color: $secondaryText;
-        font-family: Font-Bold;
-        display: flex;
-        align-items: center;
-      }
-
-      .right {
-        width: 60%;
-        font-family: Font-Light;
-        color: $secondaryText;
       }
     }
   }
 }
+
+.contact {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  flex-direction: column;
+
+  .message {
+    background-color: white;
+    margin-top: 2%;
+    color: red;
+    padding: 1%;
+    border-radius: 7px;
+    font-family: Font-Light;
+  }
+
+  button {
+    width: 25%;
+    font-family: Font-Regular;
+    font-size: 16px;
+    background-color: #FEBD69;
+    color: #051E2E;
+
+    &:hover {
+      cursor: pointer;
+      color: $secondaryText;
+      background-color: $primary;
+      transition: 0.5s;
+    }
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  h1 {
+    font-family: Font-Bold;
+    color: $secondaryText;
+    text-align: center;
+    padding-bottom: 2%;
+  }
+
+  form {
+    width: 30%;
+    height: 60vh;
+    background-color: white;
+    border-radius: 7px;
+    padding: 1.5%;
+  }
+}
+
+.shop {
+  background-color: $primary;
+
+  .field {
+    display: flex;
+
+    .filters {
+      height: 75vh;
+      width: 30%;
+      background-color: $secondary;
+      border: 1px solid $secondaryText;
+
+      .search {
+        input {
+          width: 65%;
+        }
+      }
+
+      .gender {
+        padding: 5% 0;
+      }
+
+      .saleFilter {
+        padding: 5% 0;
+      }
+    }
+
+    .products {
+      width: 100%;
+      height: 75vh;
+      background-color: white;
+      border: 1px solid $secondaryText;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5%;
+      padding: 1% 5%;
+
+      a {
+        color: $primary;
+      }
+
+      .productCard {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid $secondary;
+        border-radius: 10px;
+        box-shadow: 4px 3px 10px $secondaryText;
+        padding: 2%;
+        font-size: 12px;
+
+        &:hover {
+          transition: 0.5s;
+          transform: scale(1.05);
+          cursor: pointer;
+        }
+
+        .img {
+          img {
+            border-radius: 10px;
+            max-width: 100%;
+          }
+        }
+
+        .button {
+          font-family: Font-Regular;
+          font-size: 16px;
+          color: #051E2E;
+          display: flex;
+          justify-content: center;
+          margin: 2% 0;
+
+          &:hover {
+            cursor: pointer;
+            color: $secondaryText;
+            transition: 0.5s;
+          }
+        }
+
+        .title {
+          padding: 2% 0;
+        }
+
+        .price {
+          .oldPrice {
+            text-decoration: line-through;
+            color: red;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: $secondaryText;
+  }
+
+  .shopNav {
+    padding: 1% 5%;
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      font-size: 25px;
+      font-family: Font-Bold;
+
+      a {
+        color: $secondary;
+
+        &:hover {
+          color: $secondaryText;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+}
+
+.aboutus {
+  .header {
+    height: 80vh;
+    background-image: url(../src/images/fashionshop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .body {
+    padding: 5%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5%;
+
+    .left {
+      width: 30%;
+      justify-content: center;
+      font-size: 30px;
+      color: $secondaryText;
+      font-family: Font-Bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .right {
+      width: 60%;
+      font-family: Font-Light;
+      color: $secondaryText;
+    }
+  }
+}
+
 
 footer {
   height: 5vh;
