@@ -127,10 +127,48 @@ main {
   .cart {
     height: 85vh;
     color: $secondaryText;
+    overflow-y: scroll;
+
+    .total{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 3%;
+      padding: 2% 5%;
+    }
+    .buy{
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 5%;
+      button{
+          width: 10%;
+          font-family: Font-Regular;
+          font-size: 16px;
+          background-color: #FEBD69;
+          color: #051E2E;
+          display: flex;
+          justify-content: center;
+          margin-bottom: 2%;
+  
+          &:hover {
+            cursor: pointer;
+            color: white;
+            background-color: $secondaryText;
+            transition: 0.5s;
+        }
+      }
+    }
 
     table {
       padding: 2% 5%;
       width: 100%;
+
+      .info{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
 
       tr {
         border-bottom: 1px solid $secondaryText;
@@ -140,12 +178,11 @@ main {
       }
 
       .item {
-        border-bottom: 1px solid $secondaryText;
 
         .title {
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
 
           .img {
             width: 20%;
@@ -158,10 +195,9 @@ main {
 
         }
         td{
-          text-align: center;
           display: flex;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
         }
 
         .quantity{
@@ -196,6 +232,7 @@ main {
   height: 85vh;
   padding: 2% 5%;
   display: flex;
+  overflow-y: scroll;
 
   .back {
     position: absolute;
@@ -278,6 +315,7 @@ main {
         font-family: Font-Regular;
         font-size: 16px;
         background-color: #FEBD69;
+        margin-bottom: 2%;
         color: #051E2E;
         display: flex;
         justify-content: center;
