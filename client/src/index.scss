@@ -128,12 +128,55 @@ main {
     background-color: white;
     .cover{
       background-image: url('../src/images/homepage2.jpg');
-      height: 90vh;
+      height: 100vh;
       background-size: cover;
       background-repeat: no-repeat;
     }
     .slider{
-      height: 85vh;
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: $primary;
+      margin-bottom: 2%;
+      h2{
+        margin: 2% 0;
+      }
+      .next{
+        position: absolute;
+        right: 35%;
+        top: 50%;
+        font-size: 40px;
+        &:hover{
+          cursor: pointer;
+          color: $secondaryText;
+        }
+      }
+      .previous{
+        position: absolute;
+        left: 35%;
+        top: 50%;
+        font-size: 40px;
+        &:hover{
+          cursor: pointer;
+          color: $secondaryText;
+        }
+      }
+      .sliderComponent{
+        height: 100%;
+        p{
+          color: $primary;
+          font-size: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:hover{
+            color: $secondaryText;
+          }
+        }
+      }
     }
   }
 

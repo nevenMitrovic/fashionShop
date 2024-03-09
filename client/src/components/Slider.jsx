@@ -15,7 +15,7 @@ const Slider = () => {
 
     const moonLoaderStyle = {
         display: "block",
-        margin: "0 150%",
+        margin: "0 50%",
         borderColor: "red",
     };
 
@@ -34,11 +34,23 @@ const Slider = () => {
     };
 
     const next = () => {
-        setCounter(counter + 1);
+        setTimeout(() => {
+            if (counter === array.length - 1) {
+                setCounter(0)
+            } else {
+                setCounter(counter + 1);
+            }
+        }, 500)
     };
 
     const previous = () => {
-        setCounter(counter - 1);
+        setTimeout(() => {
+            if (counter === 0) {
+                setCounter(array.length - 1);
+            } else {
+                setCounter(counter - 1);
+            }
+        }, 500)
     };
 
 
@@ -55,6 +67,7 @@ const Slider = () => {
                     />
                 ) : (
                     <>
+                        <h2>Preporucujemo od novih artikala</h2>
                         <SliderComponent key={array[counter]._id} {...array[counter]} />
                         <div className="next" onClick={() => next()}><i className="fa-solid fa-right-long"></i></div>
                         <div className="previous" onClick={() => previous()}><i className="fa-solid fa-left-long"></i></div>
