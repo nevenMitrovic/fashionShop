@@ -16,6 +16,7 @@ const SignUp = () => {
       username: e.target[1].value,
       password: e.target[2].value
     };
+    
     let validation = await userSchema.isValid(formData);
     if (validation) {
       const { email, username, password } = formData;

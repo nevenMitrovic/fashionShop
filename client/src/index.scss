@@ -124,6 +124,19 @@ main {
   font-family: Font-Regular;
   background-color: $primary;
 
+  .home {
+    background-color: white;
+    .cover{
+      background-image: url('../src/images/homepage2.jpg');
+      height: 90vh;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .slider{
+      height: 85vh;
+    }
+  }
+
   .cart {
     height: 85vh;
     color: $secondaryText;
@@ -600,9 +613,9 @@ main {
   }
 }
 
-.home{
-  .slider{
-    img{
+.home {
+  .slider {
+    img {
       max-height: 100%;
       max-width: 100%;
     }
@@ -959,3 +972,5 @@ footer {
     }
   }
 }
+
+;
