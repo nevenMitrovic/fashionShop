@@ -12,10 +12,9 @@ const GenderFilter = () => {
         dispatch(comboGender(obj));
     }
 
-//TREBA NAPRAVITI POCETNI SELECTED ZA COMBOBOXOVE
     return (
         <div className="gender">
-            <select id="gender" onChange={(e) => setGender(e)}> 
+            <select id="gender" value={comboGenderState} onChange={(e) => setGender(e)}> 
                 <option value="0">Izaberi pol</option>
                 <option value="Muškarci">Muškarci</option>
                 <option value="Žene">Žene</option>

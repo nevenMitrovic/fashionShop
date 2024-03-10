@@ -16,7 +16,7 @@ const SaleFilter = () => {
 
   return (
     <div className="saleFilter">
-      <select id="saleFilter" onChange={(e) => setSale(e)}>
+      <select id="saleFilter" value={comboSaleNewState} onChange={(e) => setSale(e)}>
         <option value="0">Izaberi kolekciju</option>
         <option value="s">Sale</option>
         <option value="n">New</option>
