@@ -73,8 +73,8 @@ const Header = () => {
             {open &&
                 <div className="dropDown" onMouseEnter={() => openMenu()} onMouseLeave={() => closeMenu()}>
                     <ul>
-                        <li><Link to='/woman' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Woman</Link></li>
-                        <li><Link to='/man' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Man</Link></li>
+                        <li><Link to='/women' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Women</Link></li>
+                        <li><Link to='/men' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Men</Link></li>
                         <li><Link to='/sale' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Sale</Link></li>
                     </ul>
                 </div>

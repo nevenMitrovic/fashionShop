@@ -27,8 +27,8 @@ const Shop = () => {
       <div className="shop">
         <div className="shopNav">
           <ul className='nav'>
-            <li><Link to="/man">Man</Link></li>
-            <li><Link to="/woman">Woman</Link></li>
+            <li><Link to="/men">Men</Link></li>
+            <li><Link to="/women">Women</Link></li>
             <li><Link to="/sale">Sale</Link></li>
           </ul>
         </div>
@@ -42,8 +42,8 @@ const Shop = () => {
     <div className="shop">
       <div className="shopNav">
         <ul className='nav'>
-          <li><Link to="/man">Man</Link></li>
-          <li><Link to="/woman">Woman</Link></li>
+          <li><Link to="/men">Men</Link></li>
+          <li><Link to="/women">Women</Link></li>
           <li><Link to="/sale">Sale</Link></li>
         </ul>
       </div>

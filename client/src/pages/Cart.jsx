@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment, removeItm } from "../redux/slice/cartSlice";
+import { decrement, emptyCart, increment, removeItm } from "../redux/slice/cartSlice";
 import { useState } from "react";
 
 const Cart = () => {
@@ -27,17 +27,22 @@ const Cart = () => {
     if (username === null) {
       setMessage('Morate biti ulogovani da bi ste kupovali!');
     } else {
-      try {
-        const obj = { username, token, order: cart };
-        const server = await fetch('http://localhost:5000/fashionshop/users/order', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(obj)
-        });
-        const response = await server.json();
-        setMessage(response.message);
-      } catch (error) {
-        console.log(error);
+      if (cart.length > 0) {
+        try {
+          const obj = { username, token, order: cart };
+          const server = await fetch('http://localhost:5000/fashionshop/users/order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(obj)
+          });
+          const response = await server.json();
+          setMessage(response.message);
+          dispatch(emptyCart({empty:[]}));
+        } catch (error) {
+          console.log(error);
+        }
+      }else{
+        setMessage('Dodajte artikle u korpu!');
       }
     }
   }
