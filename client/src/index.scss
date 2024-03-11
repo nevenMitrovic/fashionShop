@@ -965,6 +965,13 @@ footer {
     border-radius: 7px;
     padding: 1.5%;
 
+    .check{
+      input{
+        width: 5%;
+        margin-right: 2%;
+      }
+    }
+
     h1 {
       font-family: Font-Bold;
       color: $secondaryText;

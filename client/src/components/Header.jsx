@@ -5,6 +5,7 @@ import { setMenu } from '../redux/slice/menuSlice';
 import { registerNull } from '../redux/slice/registerSlice';
 import { messageNull, signO } from '../redux/slice/signSlice';
 import { updateInfoNull } from '../redux/slice/messageSlice';
+import RemoveCookie from '../cookies/RemoveCookie';
 
 
 
@@ -40,6 +41,7 @@ const Header = () => {
     const logOut = () => {
         const obj = { signOut: false, token: null, username: null };
         dispatch(signO(obj));
+        RemoveCookie('save');
     }
 
     const updateInfoMessage = () => {
@@ -62,7 +64,7 @@ const Header = () => {
                     <ul className='r'>
                         {!isSignIn ?
                             (<li className='log'><Link to='/signup' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}>Sign up</Link> / <Link to='/signin' onClick={() => setNull()}>Sign in</Link></li>) :
-                            (<li className='log'>{username} / <span className='logout' onClick={() => logOut()}>LogOut</span></li>)
+                            (<li className='log'>{username} / <span className='logout' onClick={() => logOut()}>Sign out</span></li>)
                         }
                         <li className='cart'><Link to='/cart' onClick={() => { setNull(); setMessageNull(); updateInfoMessage() }}><i className="fa-solid fa-cart-shopping"><span className='length'>{cart.length===0?(<></>):(cart.length)}</span></i></Link></li>
                     </ul>

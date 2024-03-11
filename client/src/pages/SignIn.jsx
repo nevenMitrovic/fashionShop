@@ -2,13 +2,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { sign } from "../redux/slice/signSlice";
 import { useNavigate } from "react-router-dom";
 import { updatePass, updateVisibility } from "../redux/slice/registerSlice";
-
+import SetCookie from "../cookies/SetCookie";
+import { useState } from "react";
 
 
 const SignIn = () => {
 
   const { isSignIn, message } = useSelector(state => state.signIn);
   const { passwordVisible, password } = useSelector(state => state.register);
+  const [staySign,setStaySign]=useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -27,6 +29,7 @@ const SignIn = () => {
     const response = await server.json();
     if (response.message === 'Uspesno ste se ulogovali!') {
       obj = { signIn: true, message: response.message, username: formData.username, token: response.token };
+      if(staySign) SetCookie('save', JSON.stringify({ username: formData.username, token: response.token }));
       dispatch(sign(obj));
       navigate('/shop');
     } else {
@@ -50,6 +53,14 @@ const SignIn = () => {
     }
   }
 
+  const checkBox=(e)=>{
+    if(staySign){
+      setStaySign(false);
+    }else{
+      setStaySign(true);
+    }
+  }
+
   return (
     <>
       <div className="signin">
@@ -60,6 +71,7 @@ const SignIn = () => {
             <input type="text" id="username" placeholder="nevenub" /><br />
             <label>Password</label><br />
             <input type={passwordVisible ? "text" : "password"} id="password" placeholder="********" onChange={passwordUpdate} /> <span className="eye" onClick={() => visibility()}>{passwordVisible ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>)}</span>
+            <div className="check"><input type="checkbox" id="check" onChange={(e)=>checkBox(e)}/><label>Stay signed in</label></div>
             <p className="policy">By using our website, you agree to abide by our Terms of Service and acknowledge our Data Policy. We are committed to protecting your privacy and ensuring the security of your information. Please review our Terms of Service and Data Policy for more details on how we collect, use, and protect your data.</p>
             <div className="button"><button type="submit" className="sign">Sign in</button></div>
           </form>) : (
@@ -69,7 +81,8 @@ const SignIn = () => {
               <label>Username</label><br />
               <input type="text" id="username" placeholder="nevenub" /><br />
               <label>Password</label><br />
-              <input type={passwordVisible ? "text" : "password"} id="password" placeholder="********" onChange={passwordUpdate} />
+              <input type={passwordVisible ? "text" : "password"} id="password" placeholder="********" onChange={passwordUpdate} /> <span className="eye" onClick={() => visibility()}>{passwordVisible ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>)}</span>
+              <div className="check"><input type="checkbox" id="check" onChange={(e)=>checkBox(e)}/><label>Stay signed in</label></div>
               <p className="policy">By using our website, you agree to abide by our Terms of Service and acknowledge our Data Policy. We are committed to protecting your privacy and ensuring the security of your information. Please review our Terms of Service and Data Policy for more details on how we collect, use, and protect your data.</p>
               <div className="button"><button type="submit" className="sign">Sign in</button></div>
             </form>

@@ -24,9 +24,14 @@ let signInSlice = createSlice({
             state.isSignIn=action.payload.signOut;
             state.token=action.payload.token;
             state.username=action.payload.username;
+        },
+        staySignIn(state,action){
+            state.isSignIn=action.payload.signIn;
+            state.username=action.payload.username;
+            state.token=action.payload.token;
         }
     }
 });
 
-export const { sign,messageNull,signO } = signInSlice.actions;
+export const { sign,messageNull,signO,staySignIn } = signInSlice.actions;
 export default signInSlice = signInSlice.reducer;

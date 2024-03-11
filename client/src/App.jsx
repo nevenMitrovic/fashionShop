@@ -12,11 +12,25 @@ import Woman from './pages/Woman';
 import Man from './pages/Man';
 import Sale from './pages/Sale';
 import Product from './components/Product';
+import GetCookie from './cookies/GetCookie';
+import { useDispatch } from 'react-redux';
+import { staySignIn } from './redux/slice/signSlice';
 
 
 
 
 function App() {
+
+  const dispatch=useDispatch();
+
+  let user=GetCookie('save');
+
+  if(user!==undefined){
+    let username=user.split(',')[0].split('"')[3];
+    let token=user.split(',')[1].split('"')[3];
+    let obj={username,token,signIn:true};
+    dispatch(staySignIn(obj));
+  }
 
   return (
     <>
