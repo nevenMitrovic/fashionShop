@@ -1039,6 +1039,11 @@ footer {
     font-size: 90%;
   }
 
+  .dropDown {
+    top: 6%;
+    left: 34%;
+  }
+
   header {
     .right {
       width: 18%;
@@ -1078,6 +1083,8 @@ footer {
   }
 
   .product {
+    justify-content: center;
+
     .right {
       .price {
         .add {
@@ -1089,5 +1096,222 @@ footer {
       }
     }
   }
+}
 
+@media screen and (max-width:768px) {
+  body {
+    font-size: 73%;
+  }
+
+  .dropDown {
+    top: 6%;
+    justify-content: flex-start;
+    padding-top: 2%;
+    height: 15vh;
+    left: 35%;
+  }
+
+  .home {
+
+    .cover {
+      background-position: center;
+    }
+
+    .slider {
+      .next {
+        visibility: hidden;
+      }
+
+      .previous {
+        visibility: hidden;
+      }
+    }
+  }
+
+  .product {
+    justify-content: center;
+
+    .image {
+      display: flex;
+      align-items: center;
+    }
+
+    .price {
+      span{
+        display: block;
+        padding-bottom: 2%;
+      }
+      .add {
+        .button {
+          width: 40%;
+        }
+      }
+    }
+  }
+
+  .shop {
+    .field {
+      .products {
+        grid-template-columns: repeat(2,1fr);
+      }
+      .category{
+        input{
+          margin: 5% 0;
+        }
+      }
+
+      .filters {
+        .filt {
+          .search {
+            input {
+              width: 90%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .manwomansale{
+    .field {
+      .products {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .filters {
+        .filt {
+          .category{
+            input{
+              margin: 5% 0;
+            }
+          }
+          .search {
+            input {
+              width: 90%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .contact{
+    form{
+      height: 55%;
+    }
+  }
+
+  .signup{
+    form{
+      width: 50%;
+      height: 60%;
+    }
+    .info{
+      left:70%;
+    }
+  }
+
+  .signin{
+    form{
+      height: 62%;
+      .button{
+        button{
+          width: 55%;
+        }
+      }
+    }
+  }
+
+  .aboutus{
+    .body{
+      .left{
+        font-size: 20px;
+      }
+    }
+  }
+
+  footer {
+    height: 7vh;
+  }
+
+  header {
+    .right {
+      .r {
+        .cart {
+          .length {
+            right: 9.7%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:640px){
+
+  header{
+    .right{
+      width: 25%;
+      .r{
+        .cart{
+          .length{
+            right: 8.2%;
+          }
+        }
+      }
+    }
+  }
+
+  .product{
+    .right{
+      h2{
+        font-size: 150%;
+      }
+      .price{
+        span{
+          font-size: 50%;
+          display: block;
+          margin-bottom: 2%;
+        }
+        .add{
+          width: 60%;
+          .button{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .shop{
+    .field{
+      .products{
+        grid-template-columns: repeat(1,1fr);
+      }
+    }
+  }
+
+  .contact{
+    form{
+      width: 50%;
+    }
+  }
+
+  .manwomansale{
+    .field{
+      .products{
+        grid-template-columns: repeat(1,1fr);
+      }
+    }
+  }
+  .cart{
+    tbody{
+      .item{
+        .title{
+          .img{
+            visibility: hidden;
+          }
+        }
+      }
+    }
+  }
 }

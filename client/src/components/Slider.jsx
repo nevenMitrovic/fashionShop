@@ -67,10 +67,12 @@ const Slider = () => {
                     />
                 ) : (
                     <>
+                    <>
                         <h2>Preporucujemo od novih artikala</h2>
-                        <SliderComponent key={array[counter]._id} {...array[counter]} />
                         <div className="next" onClick={() => next()}><i className="fa-solid fa-right-long"></i></div>
                         <div className="previous" onClick={() => previous()}><i className="fa-solid fa-left-long"></i></div>
+                    </>
+                        <SliderComponent key={array[counter]._id} {...array[counter]} />
                     </>
                 )
             }

@@ -67,11 +67,11 @@ const SignUp = () => {
         <form onSubmit={createUser}>
           <h1>Sign up</h1>
           <label>Email</label><br />
-          <input type="text" id="email" placeholder="nevenmitrovic@example.com" /><br />
+          <input type="text" required id="email" placeholder="nevenmitrovic@example.com" /><br />
           <label>Username</label><br />
-          <input type="text" id="username" placeholder="nevenub" /><br />
+          <input type="text" required id="username" placeholder="nevenub" /><br />
           <label>Password</label><br />
-          <input type={passwordVisible ? "text" : "password"} id="password" placeholder="********" onChange={passwordUpdate} onPointerEnter={()=>infoVisibility()} onPointerLeave={()=>infoVisibility()}/> <span className="eye" onClick={() => visibility()}>{passwordVisible ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>)}</span>
+          <input type={passwordVisible ? "text" : "password"} id="password" required placeholder="********" onChange={passwordUpdate} onPointerEnter={()=>infoVisibility()} onPointerLeave={()=>infoVisibility()}/> <span className="eye" onClick={() => visibility()}>{passwordVisible ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>)}</span>
           <p className="policy">By using our website, you agree to abide by our Terms of Service and acknowledge our Data Policy. We are committed to protecting your privacy and ensuring the security of your information. Please review our Terms of Service and Data Policy for more details on how we collect, use, and protect your data.</p>
           <div className="button"><button type="submit" className="sign">Sign up</button></div>
         </form>
@@ -82,11 +82,11 @@ const SignUp = () => {
           <form onSubmit={createUser}>
             <h1>Sign up</h1>
             <label>Email</label><br />
-            <input type="text" id="email" placeholder="nevenmitrovic@example.com" /><br />
+            <input type="text" id="email" placeholder="nevenmitrovic@example.com" required /><br />
             <label>Username</label><br />
-            <input type="text" id="username" placeholder="nevenub" /><br />
+            <input type="text" id="username" placeholder="nevenub" required /><br />
             <label>Password</label><br />
-            <input type={passwordVisible ? "text" : "password"} id="password" placeholder="********" onChange={passwordUpdate} onPointerEnter={()=>infoVisibility()} onPointerLeave={()=>infoVisibility()}/> <span className="eye" onClick={() => visibility()}>{passwordVisible ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>)}</span>
+            <input type={passwordVisible ? "text" : "password"} id="password" required placeholder="********" onChange={passwordUpdate} onPointerEnter={()=>infoVisibility()} onPointerLeave={()=>infoVisibility()}/> <span className="eye" onClick={() => visibility()}>{passwordVisible ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>)}</span>
             <p className="policy">By using our website, you agree to abide by our Terms of Service and acknowledge our Data Policy. We are committed to protecting your privacy and ensuring the security of your information. Please review our Terms of Service and Data Policy for more details on how we collect, use, and protect your data.</p>
             <div className="button"><button type="submit" className="sign">Sign up</button></div>
           </form>

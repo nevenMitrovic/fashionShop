@@ -70,9 +70,9 @@ const SignIn = () => {
           <form onSubmit={SignIn}>
             <h1>Sign in</h1>
             <label>Username</label><br />
-            <input type="text" id="username" placeholder="nevenub" /><br />
+            <input type="text" id="username" placeholder="nevenub" required/><br />
             <label>Password</label><br />
-            <input type={passwordVisible ? "text" : "password"} id="password" placeholder="********" onChange={passwordUpdate} /> <span className="eye" onClick={() => visibility()}>{passwordVisible ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>)}</span>
+            <input type={passwordVisible ? "text" : "password"} id="password" required placeholder="********" onChange={passwordUpdate} /> <span className="eye" onClick={() => visibility()}>{passwordVisible ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>)}</span>
             <div className="check"><input type="checkbox" id="check" onChange={(e) => checkBox(e)} /><label>Stay signed in</label></div>
             <p className="policy">By using our website, you agree to abide by our Terms of Service and acknowledge our Data Policy. We are committed to protecting your privacy and ensuring the security of your information. Please review our Terms of Service and Data Policy for more details on how we collect, use, and protect your data.</p>
             <div className="button"><button type="submit" className="sign">Sign in</button></div>
@@ -81,9 +81,9 @@ const SignIn = () => {
             <form onSubmit={SignIn}>
               <h1>Sign in</h1>
               <label>Username</label><br />
-              <input type="text" id="username" placeholder="nevenub" /><br />
+              <input type="text" id="username" placeholder="nevenub" required /><br />
               <label>Password</label><br />
-              <input type={passwordVisible ? "text" : "password"} id="password" placeholder="********" onChange={passwordUpdate} /> <span className="eye" onClick={() => visibility()}>{passwordVisible ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>)}</span>
+              <input type={passwordVisible ? "text" : "password"} id="password" required placeholder="********" onChange={passwordUpdate} /> <span className="eye" onClick={() => visibility()}>{passwordVisible ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>)}</span>
               <div className="check"><input type="checkbox" id="check" onChange={(e) => checkBox(e)} /><label>Stay signed in</label></div>
               <p className="policy">By using our website, you agree to abide by our Terms of Service and acknowledge our Data Policy. We are committed to protecting your privacy and ensuring the security of your information. Please review our Terms of Service and Data Policy for more details on how we collect, use, and protect your data.</p>
               <div className="button"><button type="submit" className="sign">Sign in</button></div>
