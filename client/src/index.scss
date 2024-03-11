@@ -126,53 +126,64 @@ main {
 
   .home {
     background-color: white;
-    .cover{
+
+    .cover {
       background-image: url('../src/images/homepage2.jpg');
       height: 100vh;
       background-size: cover;
       background-repeat: no-repeat;
     }
-    .slider{
+
+    .slider {
       position: relative;
       height: 100vh;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       color: $primary;
       margin-bottom: 2%;
-      h2{
+
+      h2 {
         margin: 2% 0;
       }
-      .next{
+
+      .next {
         position: absolute;
         right: 35%;
         top: 50%;
         font-size: 40px;
-        &:hover{
+
+        &:hover {
           cursor: pointer;
           color: $secondaryText;
         }
       }
-      .previous{
+
+      .previous {
         position: absolute;
         left: 35%;
         top: 50%;
         font-size: 40px;
-        &:hover{
+
+        &:hover {
           cursor: pointer;
           color: $secondaryText;
         }
       }
-      .sliderComponent{
+
+      .sliderComponent {
         height: 100%;
-        p{
+
+        p {
           color: $primary;
           font-size: 20px;
           display: flex;
           justify-content: center;
           align-items: center;
-          &:hover{
+
+          &:hover {
             color: $secondaryText;
           }
         }
@@ -965,8 +976,8 @@ footer {
     border-radius: 7px;
     padding: 1.5%;
 
-    .check{
-      input{
+    .check {
+      input {
         width: 5%;
         margin-right: 2%;
       }
@@ -1023,4 +1034,60 @@ footer {
   }
 }
 
-;
+@media screen and (max-width:1024px) {
+  body {
+    font-size: 90%;
+  }
+
+  header {
+    .right {
+      width: 18%;
+
+      .r {
+        .cart {
+          .length {
+            right: 10.3%;
+          }
+        }
+      }
+    }
+  }
+
+  #contactMessage {
+    max-width: 100%;
+  }
+
+  .signup {
+    form {
+      input {
+        width: 80%;
+      }
+    }
+
+    .info {
+      left: 62%;
+    }
+  }
+
+  .signin {
+    form {
+      input {
+        width: 80%;
+      }
+    }
+  }
+
+  .product {
+    .right {
+      .price {
+        .add {
+          .button {
+            font-size: 72%;
+            padding: 5px 0;
+          }
+        }
+      }
+    }
+  }
+
+}

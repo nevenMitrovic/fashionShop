@@ -31,7 +31,6 @@ const SignUp = () => {
     } else {
       const obj = { regStatus: { message: 'Uneti podaci nisu ispravni! Pokušajte ponovo!' } };
       dispatch(registerUser(obj));
-      console.log(password)
     }
   }
 
