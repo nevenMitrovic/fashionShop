@@ -42,9 +42,9 @@ const Shop = () => {
     <div className="shop">
       <div className="shopNav">
         <ul className='nav'>
-          <li><Link to="/men">Men</Link></li>
+          <li className='mennav'><Link to="/men">Men</Link></li>
           <li><Link to="/women">Women</Link></li>
-          <li><Link to="/sale">Sale</Link></li>
+          <li className='salenav'><Link to="/sale">Sale</Link></li>
         </ul>
       </div>
       <div className="field">

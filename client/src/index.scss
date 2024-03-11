@@ -652,9 +652,19 @@ main {
 
     .nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       font-size: 25px;
       font-family: Font-Bold;
+      li{
+        width: 100%;
+        text-align: center;
+      }
+      .mennav{
+        border-right: 1px solid $secondaryText;
+      }
+      .salenav{
+        border-left: 1px solid $secondaryText;
+      }
 
       a {
         color: $secondary;
