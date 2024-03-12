@@ -37,7 +37,6 @@ const SignUp = () => {
   const passwordUpdate = (e) => {
     let obj = { password: e.target.value };
     dispatch(updatePass(obj));
-    console.log(password)
   }
 
   const visibility = () => {

@@ -28,8 +28,9 @@ const Cart = () => {
       setMessage('Morate biti ulogovani da bi ste kupovali!');
     } else {
       if (cart.length > 0) {
+        let total = cart.reduce((acc, prod) => { return acc + prod.quantity * prod.price }, 0);
         try {
-          const obj = { username, token, order: cart };
+          const obj = { username, token, order: cart, total };
           const server = await fetch('http://localhost:5000/fashionshop/users/order', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -37,11 +38,11 @@ const Cart = () => {
           });
           const response = await server.json();
           setMessage(response.message);
-          dispatch(emptyCart({empty:[]}));
+          dispatch(emptyCart({ empty: [] }));
         } catch (error) {
           console.log(error);
         }
-      }else{
+      } else {
         setMessage('Dodajte artikle u korpu!');
       }
     }

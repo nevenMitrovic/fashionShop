@@ -97,8 +97,8 @@ const messagePost = async (req, res) => {
 
 const orderPost = async (req, res) => {
   try {
-    const { username, order } = req.body;
-    const userOrder = new Order({ username, order });
+    const { username, order, total } = req.body;
+    const userOrder = new Order({ username, order, total });
     await userOrder.save();
     res.status(201).json({ message: "Uspesna porudzbina!" });
   } catch (error) {
